@@ -1,33 +1,40 @@
-# Impact of Trial-wise and Test Data Leakage on EEG-Based Emotion Classification
+# Rotation-Equivariant Multi-Scale Convolution via Adaptive Magnitude LBP
 
-**Peihong Lei**, Mengyao Wu, Wenjun Yi, Hanlin Mo\*
+**Peihong Lei**†, Yuying Ren‡, Siqi Chen‡, Fan Bai‡, Hanlin Mo†,\*
 
-*4DMR Workshop @ IJCAI 2025 | CEUR-WS Vol-4115*
+† Xidian University, China  
+‡ Northwestern Polytechnical University, China
 
-[[Paper]](https://ceur-ws.org/Vol-4115/paper7.pdf) [[Project Page]](https://peihonglei.github.io/EEG-Leakage-Benchmark/)
+*Accepted to IEEE International Conference on Image Processing (ICIP), 2026*
+
+[[Paper]]() [[Project Page]](https://peihonglei.github.io/MLBPConv/)
 
 ## Abstract
 
-Deep learning-based approaches have significantly advanced emotion recognition technology using electroencephalography (EEG) data. However, data leakage poses a major threat to model generalizability. This paper focuses on analyzing two common leakage patterns, test data leakage (test-set-driven hyperparameter tuning) and trial-wise data leakage (where the same trial segment is split between training and test sets), lead to overestimation of deep learning model performance. We systematically quantify the impact of these two leakage types, applying
-four data processing approaches to the DEAP dataset: normal setting, test data leakage, trial-wise data leakage, and combined test data and trial-wise leakage. Six representative deep learning models were trained and tested under each data processing condition, maintaining identical other factors across all models to control variables. Experimental results demonstrate that under the three leakage conditions, all six models significantly outperform the normal setting: the minimum improvement in valence classification accuracy reached 35.71%, while the
-minimum improvement in arousal classification accuracy reached 25.00%. Architectures based on convolutional neural networks (CNN) were most affected, while transformer-based models showed smaller but still significant impacts. Further, visualization of the average intermediate features across all EEG data belonging to each class for these models reveals that data leakage induces significant alterations in brain topography patterns. The severity of performance inflation followed the order: combined leakage > trial-wise data leakage > test data leakage. In
-summary, our findings underscore the critical importance of implementing rigorous data partitioning protocols and leakage-aware experimental designs in both affective computing and neuroscience research. Only in this way can we ensure that artificial intelligence assists researchers in uncovering genuine scientific laws rather than leading them astray.
+Rotation equivariance is a key challenge for deep neural networks, as standard convolutions are sensitive to input orientation and often rely on extensive data augmentation. We introduce MLBPConv, a novel rotation-equivariant convolution based on a locally magnitude-thresholded Local Binary Pattern (LBP). We first identify that the instability of prior LBP-based methods stems from the intrinsic periodicity of LBP codes, which can cause errors in orientation alignment, and show that MLBPConv effectively resolves this issue. To further enrich feature representation, we design a lightweight multi-scale fusion strategy that aggregates multireceptive-field features without increasing the number of parameters. Experiments on MNIST-Rot, Outex 00012, and MTARSI demonstrate that our methods outperform standard CNNs and classical rotation-equivariant networks, and integrating MLBPConv into ResNet architectures substantially
+enhances rotation robustness. This approach provides an efficient, lightweight, and plug-and-play solution for learning stable rotation-equivariant features.
 
 ## Key Findings
  
-- **Trial-wise Leakage**: When segments from the same trial appear in both training and test sets, the model memorizes trial-specific patterns rather than learning generalizable emotion features, resulting in inflated accuracy (~49–90%).
-- **Test Data Leakage**: Improper data normalization or feature extraction using statistics from the entire dataset (including test data) further contaminates evaluation results.
-- **Realistic Baseline**: Under rigorous trial-wise splitting with proper data isolation, EEGNet achieves only ~26–43% accuracy on the DEAP dataset, suggesting that current state-of-the-art claims may need re-evaluation.
+- **Rotation-equivariant representation**: The proposed method improves robustness to image rotations by incorporating adaptive magnitude-based LBP information into convolutional feature extraction. 
+- **Multi-scale feature modeling**: The method captures local structural patterns at multiple scales, improving representation capacity for complex visual patterns. 
+- **Adaptive magnitude LBP**: Compared with traditional LBP-style descriptors, the adaptive magnitude formulation provides more flexible and discriminative local texture encoding. 
+- **CNN-compatible module**: The proposed convolution can be integrated into deep neural networks as a feature extraction component.
 
 ## Citation
-
+ 
+If you find this work useful, please cite:
+ 
 ```bibtex
-@inproceedings{lei2025impact,
-  title={Impact of Trial-wise and Test Data Leakage on EEG-Based Emotion Classification},
-  author={Lei, Peihong and Wu, Mengyao and Yi, Wenjun and Mo, Hanlin},
-  booktitle={Proceedings of the 1st Workshop on 4D Micro-Expression Recognition (4DMR 2025) at IJCAI 2025},
-  series={CEUR Workshop Proceedings},
-  volume={4115},
-  pages={69--77},
-  year={2025}
+@inproceedings{lei2026rotation,
+  title={Rotation-Equivariant Multi-Scale Convolution via Adaptive Magnitude LBP},
+  author={Lei, Peihong and Ren, Yuying and Chen, Siqi and Bai, Fan and Mo, Hanlin},
+  booktitle={Proceedings of the IEEE International Conference on Image Processing (ICIP)},
+  year={2026}
 }
+```
+
+## Copyright
+
+*Copyright 2026 IEEE. Published in 2026 IEEE International Conference on Image Processing (ICIP), scheduled for 13-17 September 2026 in Tampere, Finland. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works.*
+
