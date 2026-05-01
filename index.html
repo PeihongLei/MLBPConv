@@ -21,17 +21,19 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
 
-          <h1 class="title is-2 publication-title">Impact of Trial-wise and Test Data Leakage on EEG-Based Emotion Classification</h1>
+          <h1 class="title is-2 publication-title">Rotation-Equivariant Multi-Scale Convolution via Adaptive Magnitude LBP</h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="mailto:peihonglei@stu.xidian.edu.cn"><strong>Peihong Lei</strong></a><sup>1</sup>,</span>
-            <span class="author-block"><a href="mailto:24171214037@stu.xidian.edu.cn">Mengyao Wu</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="mailto:ywj@stu.xidian.edu.cn">Wenjun Yi</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="mailto:mohanlin@nwpu.edu.cn">Hanlin Mo</a><sup>1,*</sup></span>
+            <span class="author-block"><a href="mailto:peihonglei@stu.xidian.edu.cn"><strong>Peihong Lei</strong></a><sup>†</sup>,</span>
+            <span class="author-block"><a href="mailto:renyuying@mail.nwpu.edu.cn">Yuying Ren</a><sup>‡</sup>,</span>
+            <span class="author-block"><a href="mailto:csq204775@mail.nwpu.edu.cn">Siqi Chen</a><sup>‡</sup>,</span>
+            <span class="author-block"><a href="mailto:baifan@mail.nwpu.edu.cn">Fan Bai</a><sup>‡</sup>,</span>
+            <span class="author-block"><a href="mailto:mohanlin@nwpu.edu.cn">Hanlin Mo</a><sup>‡,*</sup></span>
           </div>
 
           <div class="is-size-6 publication-authors">
-            <span class="author-block"><sup>1</sup>School of Artificial Intelligence, Xidian University, 266 Xinglong Section of Xifeng Road, Xi'an, Shaanxi 710126, China</span>
+            <span class="author-block"><sup>†</sup>School of Artificial Intelligence, Xidian University, 266 Xinglong Section of Xifeng Road, Xi'an, Shaanxi 710126, China</span>
+            <span class="author-block"><sup>‡</sup>Northwestern Polytechnical University, China</span>
           </div>
           
           <div class="is-size-7 publication-authors" style="margin-top: 5px;">
@@ -39,7 +41,7 @@
           </div>
           
           <div class="is-size-5 publication-authors">
-            <span class="author-block" style="color:#e74c3c; font-weight:bold;">4DMR Workshop @ IJCAI 2025 | CEUR-WS Vol-4115</span>
+            <span class="author-block" style="color:#e74c3c; font-weight:bold;">Accepted to IEEE International Conference on Image Processing (ICIP), 2026</span>
           </div>
 
           <br>
@@ -47,12 +49,13 @@
             <div class="publication-links">
               <!-- PDF下载（仓库内PDF） -->
               <span class="link-block">
-                <a href="./static/EEG-Leakage-Benchmark.pdf" class="external-link button is-normal is-rounded is-dark">
+                <a href="./static/MLBPConv.pdf" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper (PDF)</span>
                 </a>
               </span>
               <!-- CEUR-WS官方链接 -->
+              <!--
               <span class="link-block">
                 <a href="https://ceur-ws.org/Vol-4115/" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-globe"></i></span>
@@ -64,7 +67,8 @@
                   <span class="icon"><i class="fas fa-graduation-cap"></i></span>
                   <span>Web of Science</span>
                 </a>
-              </span>              
+              </span>
+              -->
               <!-- 代码链接 -->
               <!--
               <span class="link-block">
@@ -91,7 +95,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Deep learning-based approaches have significantly advanced emotion recognition technology using electroencephalography (EEG) data. However, data leakage poses a major threat to model generalizability. This paper focuses on analyzing two common leakage patterns, test data leakage (test-set-driven hyperparameter tuning) and trial-wise data leakage (where the same trial segment is split between training and test sets), lead to overestimation of deep learning model performance. We systematically quantify the impact of these two leakage types, applying four data processing approaches to the DEAP dataset: normal setting, test data leakage, trial-wise data leakage, and combined test data and trial-wise leakage. Six representative deep learning models were trained and tested under each data processing condition, maintaining identical other factors across all models to control variables. Experimental results demonstrate that under the three leakage conditions, all six models significantly outperform the normal setting: the minimum improvement in valence classification accuracy reached 35.71%, while the minimum improvement in arousal classification accuracy reached 25.00%. Architectures based on convolutional neural networks (CNN) were most affected, while transformer-based models showed smaller but still significant impacts. Further, visualization of the average intermediate features across all EEG data belonging to each class for these models reveals that data leakage induces significant alterations in brain topography patterns. The severity of performance inflation followed the order: combined leakage > trial-wise data leakage > test data leakage. In summary, our findings underscore the critical importance of implementing rigorous data partitioning protocols and leakage-aware experimental designs in both affective computing and neuroscience research. Only in this way can we ensure that artificial intelligence assists researchers in uncovering genuine scientific laws rather than leading them astray.
+            Rotation equivariance is a key challenge for deep neural networks, as standard convolutions are sensitive to input orientation and often rely on extensive data augmentation. We introduce MLBPConv, a novel rotation-equivariant convolution based on a locally magnitude-thresholded Local Binary Pattern (LBP). We first identify that the instability of prior LBP-based methods stems from the intrinsic periodicity of LBP codes, which can cause errors in orientation alignment, and show that MLBPConv effectively resolves this issue. To further enrich feature representation, we design a lightweight multi-scale fusion strategy that aggregates multi-receptive-field features without increasing the number of parameters. Experiments on MNIST-Rot, Outex\_00012, and MTARSI demonstrate that our methods outperform standard CNNs and classical rotation-equivariant networks, and integrating MLBPConv into ResNet architectures substantially enhances rotation robustness. This approach provides an efficient, lightweight, and plug-and-play solution for learning stable rotation-equivariant features.
           </p>
         </div>
       </div>
@@ -99,18 +103,19 @@
   </div>
 </section>
 
-<!-- Key Findings -->
+<!-- Key Contributions -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Key Findings</h2>
+    <h2 class="title is-3 has-text-centered">Key Contributions</h2>
 
     <div class="columns is-centered">
       <div class="column is-full-width">
         <div class="content has-text-justified">
           <ul>
-            <li><strong>Trial-wise Leakage:</strong> When segments from the same trial appear in both training and test sets, the model memorizes trial-specific patterns rather than learning generalizable emotion features, resulting in inflated accuracy (~49–90%).</li>
-            <li><strong>Test Data Leakage:</strong> Improper data normalization or feature extraction using statistics from the entire dataset (including test data) further contaminates evaluation results.</li>
-            <li><strong>Realistic Baseline:</strong> Under rigorous trial-wise splitting with proper data isolation, EEGNet achieves only ~26–43% accuracy on the DEAP dataset, suggesting that current state-of-the-art claims may need re-evaluation.</li>
+            <li><strong>Rotation-equivariant Representation:</strong> The proposed method improves robustness to image rotations by incorporating adaptive magnitude-based LBP information into convolutional feature extraction.</li>
+            <li><strong>Multi-scale Feature Modeling:</strong> The method captures local structural patterns at multiple scales, improving representation capacity for complex visual patterns.</li>
+            <li><strong>Adaptive Magnitude LBP(MLBP):</strong> Compared with traditional LBP-style descriptors, the adaptive magnitude formulation provides more flexible and discriminative local texture encoding.</li>
+            <li><strong>CNN-compatible Module:</strong> The proposed convolution can be integrated into deep neural networks as a feature extraction component.</li>
           </ul>
         </div>
       </div>
@@ -120,10 +125,29 @@
       <div class="column is-full-width has-text-centered">
         <img src="./static/images/pipeline.png" alt="Data splitting comparison" style="max-width:85%;">
         <p class="has-text-centered" style="margin-top:10px; color:#666;">
-          <strong>Figure 1.</strong> Four experimental configurations based on different data partitioning and training strategies are designed, including normal setting, test data leakage, trial-wise leakage, and combined data leakage.
+          <strong>Figure 1.</strong> Illustration of the MLBP-Conv pipeline with a $3 \times 3$ kernel.
         </p>
       </div>
     </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <img src="./static/images/RRL.png" alt="Intermediate layer feature visualization" style="max-width:85%;">
+        <p class="has-text-centered" style="margin-top:10px; color:#666;">
+          <strong>Figure 2.</strong> Comparison of cyclic ambiguity in orientation alignment between RRL (using original LBP) and the proposed MLBP, highlighting the stability improvement of MLBP.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <img src="./static/images/MLBPConv.png" alt="Data splitting comparison" style="max-width:85%;">
+        <p class="has-text-centered" style="margin-top:10px; color:#666;">
+          <strong>Figure 3.</strong> The proposed lightweight MLBPConv$^{ms}$.
+        </p>
+      </div>
+    </div>
+    
   </div>
 </section>
 
@@ -133,32 +157,22 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Experimental Results</h2>
 
-    <!-- Table 1: Trial-wise Splitting -->
+    <!-- Table 1 -->
     <div class="columns is-centered" style="margin-top:30px;">
       <div class="column is-full-width has-text-centered">
         <img src="./static/images/table1.png" alt="Trial-wise splitting results" style="max-width:85%;">
         <p class="has-text-centered" style="margin-top:10px; color:#666;">
-          <strong>Table 1.</strong> Performance comparison of <strong>valence classification</strong> for 6 models under 4 data leakage conditions (ACC and F1-Score, format: mean ± standard deviation)
+          <strong>Table 1.</strong> Classification accuracy on original MNIST and MNIST-Rot test sets.
         </p>
       </div>
     </div>
 
-    <!-- Table 2: Segment-leak Splitting -->
+    <!-- Table 2 -->
     <div class="columns is-centered" style="margin-top:30px;">
       <div class="column is-full-width has-text-centered">
         <img src="./static/images/table2.png" alt="Segment-leak splitting results" style="max-width:85%;">
         <p class="has-text-centered" style="margin-top:10px; color:#666;">
-          <strong>Table 2.</strong> Performance comparison of <strong>arousal classification</strong> for 6 models under 4 data leakage conditions (ACC and F1-Score, format: mean ± standard deviation)
-        </p>
-      </div>
-    </div>
-
-    <!-- Table 3: Comparison Summary -->
-    <div class="columns is-centered" style="margin-top:30px;">
-      <div class="column is-full-width has-text-centered">
-        <img src="./static/images/table3.png" alt="Comparison summary" style="max-width:85%;">
-        <p class="has-text-centered" style="margin-top:10px; color:#666;">
-          <strong>Table 3.</strong> Average performance improvement due to data leakage across all models (format: mean ± standard deviation)
+          <strong>Table 2.</strong> Classification accuracy on Outex\_00012 and MTARSI.
         </p>
       </div>
     </div>
@@ -166,9 +180,9 @@
     <!-- Intermediate Feature Visualization -->
     <div class="columns is-centered" style="margin-top:30px;">
       <div class="column is-full-width has-text-centered">
-        <img src="./static/images/feature_vis.png" alt="Intermediate layer feature visualization" style="max-width:85%;">
+        <img src="./static/images/feature.png" alt="Intermediate layer feature visualization" style="max-width:85%;">
         <p class="has-text-centered" style="margin-top:10px; color:#666;">
-          <strong>Figure 2.</strong> Impact of data leakage on visualization analysis of EEG features from TSception model on valence classification (Class 0: Valence [1,3], Class 1: Valence [4,6]).
+          <strong>Figure 4.</strong> Feature heatmap visualization of digit "7" under various rotations, illustrating the rotation equivariance of the proposed MLBPConv and MLBPConv$^{ms}$.
         </p>
       </div>
     </div>
@@ -180,16 +194,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{lei2025impact,
-  title={Impact of Trial-wise and Test Data Leakage on EEG-Based Emotion Classification},
-  author={Lei, Peihong and Wu, Mengyao and Yi, Wenjun and Mo, Hanlin},
-  booktitle={Proceedings of the 1st Workshop on 4D Micro-Expression Recognition (4DMR 2025) at IJCAI 2025},
-  series={CEUR Workshop Proceedings},
-  volume={4115},
-  pages={69--77},
-  year={2025},
-  publisher={CEUR-WS.org},
-  url={https://ceur-ws.org/Vol-4115/paper7.pdf}
+    <pre><code>@inproceedings{lei2026rotation,
+  title={Rotation-Equivariant Multi-Scale Convolution via Adaptive Magnitude LBP},
+  author={Lei, Peihong and Ren, Yuying and Chen, Siqi and Bai, Fan and Mo, Hanlin},
+  booktitle={Proceedings of the IEEE International Conference on Image Processing (ICIP)},
+  year={2026}
 }</code></pre>
   </div>
 </section>
@@ -200,8 +209,7 @@
       <div class="column is-8">
         <div class="content has-text-centered">
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>.
-            Licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+            Copyright 2026 IEEE. Published in 2026 IEEE International Conference on Image Processing (ICIP), scheduled for 13-17 September 2026 in Tampere, Finland. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works.
           </p>
         </div>
       </div>
