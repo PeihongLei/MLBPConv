@@ -7,7 +7,7 @@
 
 *Accepted to IEEE International Conference on Image Processing (ICIP), 2026*
 
-[[Paper]]() [[Project Page]](https://peihonglei.github.io/MLBPConv/)
+[[Paper]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11630361) [[Project Page]](https://peihonglei.github.io/MLBPConv/)
 
 ## Abstract
 
